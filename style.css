@@ -68,5 +68,12 @@ h2{
     border-radius: 4px;
     cursor: pointer;
     display: none;
-    
+}
+
+.correct{
+    background: #9aeabc;
+}
+
+.incorrect{
+    background: #ff9393;
 }
