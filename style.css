@@ -9,6 +9,7 @@
 
 body{
     background: #001e4d;
+    
 }
 
 .app{
@@ -52,9 +53,13 @@ h2{
     transition: all 0.3s;
 }
 
-.btn:hover{
+.btn:hover:not([disabled]){
     background-color: #222;
     color: #fff;
+}
+
+.btn:disabled{
+    cursor: no-drop;
 }
 
 #next-btn{

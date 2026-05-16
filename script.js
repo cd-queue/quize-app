@@ -147,6 +147,7 @@ function selectAnswer(e){
     const isCorrect = selectBtn.dataset.correct === "true";
     if(isCorrect) {
         selectBtn.classList.add("correct");
+        score++;
     }
     else {
         selectBtn.classList.add("incorrect");
@@ -159,6 +160,34 @@ function selectAnswer(e){
     });
     nextButton.style.display = "block";
 }
+
+function showScore(){
+    resetState();
+    questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`
+    nextButton.innerHTML = "Play Again"
+    nextButton.style.display = "none";
+}
+
+function handleNextButton() {
+    currentQuestionIndex++;
+    if(currentQuestionIndex < questions.length)
+    {
+        showQuestion();
+    }
+    else{
+        showScore();
+    }
+}
+
+nextButton.addEventListener("click", (e) => {
+    if(currentQuestionIndex < questions.length)
+    {
+        handleNextButton();
+    }
+    else {
+        startQuiz();
+    }
+})
 
 startQuiz();
 
